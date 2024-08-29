@@ -15,7 +15,7 @@ Siga este guia para configurar o ambiente Tex no Visual Studio Code (VSC) e trab
    - Baixe e instale o Strawberry Perl pelo link: [Strawberry Perl Download](https://strawberryperl.com/).
    - O Perl é necessário para a execução de alguns scripts Tex.
 
-4. **Instale a Extensão Tex Workshop**
+4. **Instale a Extensão LaTex Workshop**
    - No Visual Studio Code, instale a extensão **LaTex Workshop** desenvolvida por James Yu. Esta extensão facilita a edição e compilação de arquivos Tex diretamente no VSC.
 
 5. **Reinicie o Visual Studio Code**
