@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.29)  29 AUG 2024 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.29)  29 AUG 2024 17:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/fbamuniz/Downloads/FATEC-TEMPLATE_ARTIGO/fatec-template.tex
-(c:/Users/fbamuniz/Downloads/FATEC-TEMPLATE_ARTIGO/fatec-template.tex
+**c:/Users/fbamuniz/Desktop/class-09-latex/f299-pi-paper-template/fatec-template.tex
+(c:/Users/fbamuniz/Desktop/class-09-latex/f299-pi-paper-template/fatec-template.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Program Files\MiKTeX\tex/latex/base\article.cls
@@ -1334,12 +1334,12 @@ Package logreq Info: Writing requests to 'fatec-template.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  34170 strings out of 474486
- 614357 string characters out of 5753561
+ 614609 string characters out of 5753561
  1945542 words of memory out of 5000000
  55819 multiletter control sequences out of 15000+600000
  614127 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,19n,131p,1800b,4558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,19n,131p,1814b,4558s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/fbamuniz/AppData/Roaming/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/fbamuniz/AppData/Roaming/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/fbamuniz/AppData/Roaming/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/fbamuniz/AppData/Roaming/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/fbamuniz/AppData/Roaming/MiKTeX/fonts/type1/public/newtx/ztmr.pfb>
 Output written on fatec-template.pdf (7 pages, 599992 bytes).
 PDF statistics:

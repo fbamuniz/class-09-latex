@@ -1,6 +1,6 @@
-PWD c:\Users\fbamuniz\Downloads\FATEC-TEMPLATE_ARTIGO
+PWD c:\Users\fbamuniz\Desktop\class-09-latex\f299-pi-paper-template
 INPUT C:\Users\fbamuniz\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\fbamuniz\Downloads\FATEC-TEMPLATE_ARTIGO\fatec-template.tex
+INPUT c:\Users\fbamuniz\Desktop\class-09-latex\f299-pi-paper-template\fatec-template.tex
 OUTPUT fatec-template.log
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
