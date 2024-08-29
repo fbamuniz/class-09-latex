@@ -1,0 +1,83 @@
+%%%% fatec-article.tex, 2024/03/10
+
+%% Classe de documento
+\documentclass[
+  a4paper,%% Tamanho de papel: a4paper, letterpaper (^), etc.
+  12pt,%% Tamanho de fonte: 10pt (^), 11pt, 12pt, etc.
+  english,%% Idioma secundário (penúltimo) (>)
+  brazilian,%% Idioma primário (último) (>)
+]{article}
+
+%% Pacotes utilizados
+\usepackage[]{fatec-article}
+\Author{1}{Name={Autor 1\\ Autor 2 \\ Autor 3\\ Autor 4}}
+
+\Author{2}{Name={\{ autor1@fatec.sp.gov.br \}\\ \{ autor2@fatec.sp.gov.br \} \\ \{ autor3@fatec.sp.gov.br\} \\ \{ autor4@fatec.sp.gov.br \}}}
+
+%% Definição das palavras-chaves/keywords
+\Keyword{1}{Artigo}{Article}
+\Keyword{2}{Latex}{Latex}
+\Keyword{3}{Informática}{Informatic}
+
+%%%% Resumo no idioma primário (brazilian)
+\begin{Abstract}[brazilian]%% Idioma (brazilian ou english)
+  O resumo FATEC Registro é uma descrição completa e concisa dos componentes-chave da metodologia do estudo e dos achados importantes da pesquisa. Normalmente, o resumo é o primeiro encontro do leitor com uma pesquisa ou relato, sendo algumas vezes o único elemento recuperado e/ou revisado nas bases de dados científicos. Esse elemento provê a primeira impressão, muitas vezes a mais importante, identificando o valor potencial ou a relevância do enfoque da pesquisa e dos resultados. Se o resumo for bem escrito, ele atrairá leitores para obter uma cópia do manuscrito completo que será incorporado aos que já foram encontrados, e seu trabalho será citado. Se o resumo for mal escrito, a pesquisa poderá ser ignorada ou, até mesmo, esquecida.
+\end{Abstract}
+
+%%%% Resumo no idioma secundário (english)
+\begin{Abstract}[english]%% Idioma (brazilian ou english)
+The summary is a complete and concise description of the key components of the study methodology and important research findings. Typically, the summary is the reader's first encounter with a research report or paper, and sometimes it is the only element retrieved and/or reviewed in scientific databases. This element provides the first impression, often the most important one, identifying the potential value or relevance of the research approach and findings. If the summary is well-written, it will attract readers to obtain a copy of the full manuscript that will be incorporated into those already found, and your work will be cited. If the summary is poorly written, the research may be ignored or even forgotten.
+\end{Abstract}
+
+%% Processamento de entradas (itens) do índice remissivo (makeindex)
+\makeindex%
+
+%% Arquivo(s) de referências
+\addbibresource{fatec-article.bib}
+
+%% Início do documento
+\begin{document}
+
+% Seções e subseções
+%\section{Título de Seção Primária}%
+
+%\subsection{Título de Seção Secundária}%
+
+%\subsubsection{Título de Seção Terciária}%
+
+%\paragraph{Título de seção quaternária}%
+
+%\subparagraph{Título de seção quinária}%
+
+\section*{Introdução}%
+\label{sect:intro}
+\input{Topicos/introducao}
+
+\section*{OBJETIVO} \label{sect:obj}
+
+\input{Topicos/objetivo}
+
+\section*{ESTADO DA ARTE} \label{sect:estadoarte}
+
+\input{Topicos/estadodaarte}
+
+\section*{METODOLOGIA} \label{sect:metodologia}
+
+\input{Topicos/metodologia}
+
+\section*{RESULTADOS PRELIMINARES}\label{sect:resultados}
+
+\input{Topicos/resultados}
+
+\section*{CONCLUSÃO}\label{sect:conclusao}
+
+\input{Topicos/conclusao}
+
+\printbibliography
+
+%% Elementos pós-textuais (opcionais): Apêndice e Anexo
+%Caso for utilizar, basta retirar o símbolo de % na frente do comando
+%\input{./Extras/post-textual}
+
+%% Fim do documento
+\end{document}
