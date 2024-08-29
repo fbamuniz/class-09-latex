@@ -1,3 +1,6 @@
+Aqui está o texto atualizado com a instrução adicional no item 7:
+
+```markdown
 # Como Usar o LaTeX no Visual Studio Code (VSC)
 
 Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e trabalhar com o template fornecido de maneira eficiente.
@@ -25,8 +28,9 @@ Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e tr
    - Abra este projeto no Visual Studio Code.
    - Navegue até o arquivo `fatec-template.tex` e clique no ícone de "Play" localizado no canto superior direito do editor.
 
-7. **Instalação de Dependências**
+7. **Instalação de Dependências e Compilação**
    - Durante a primeira compilação, será solicitado que você instale algumas dependências do template. **Aceite todas as solicitações** para garantir que o template funcione corretamente.
+   - **Aguarde a mensagem de build** no canto inferior esquerdo do VSC até que o processo de compilação seja finalizado antes de prosseguir.
 
 8. **Experiência Similar ao Overleaf**
    - Para uma experiência similar ao Overleaf, mantenha o arquivo `fatec-template.tex` aberto no lado esquerdo da tela e o arquivo `fatec-template.pdf` aberto no lado direito. Assim, você pode visualizar as mudanças em tempo real enquanto edita o documento.
@@ -34,3 +38,6 @@ Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e tr
 ---
 
 Agora você está pronto para trabalhar com LaTeX no Visual Studio Code usando o template FATEC!
+```
+
+Essa adição garante que o usuário saiba que deve esperar o processo de compilação finalizar antes de continuar.
