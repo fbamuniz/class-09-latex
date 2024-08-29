@@ -1,6 +1,3 @@
-Aqui está o texto atualizado com a instrução adicional no item 7:
-
-```markdown
 # Como Usar o LaTeX no Visual Studio Code (VSC)
 
 Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e trabalhar com o template fornecido de maneira eficiente.
@@ -38,6 +35,3 @@ Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e tr
 ---
 
 Agora você está pronto para trabalhar com LaTeX no Visual Studio Code usando o template FATEC!
-```
-
-Essa adição garante que o usuário saiba que deve esperar o processo de compilação finalizar antes de continuar.
