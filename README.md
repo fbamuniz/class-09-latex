@@ -1,6 +1,6 @@
 # Como Usar o TeX no Visual Studio Code (VSC)
 
-Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e trabalhar com o template fornecido de maneira eficiente.
+Siga este guia para configurar o ambiente Tex no Visual Studio Code (VSC) e trabalhar com o template fornecido de maneira eficiente.
 
 ## Passos para Configuração
 
@@ -13,10 +13,10 @@ Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e tr
 
 3. **Instale o Strawberry Perl**
    - Baixe e instale o Strawberry Perl pelo link: [Strawberry Perl Download](https://strawberryperl.com/).
-   - O Perl é necessário para a execução de alguns scripts LaTeX.
+   - O Perl é necessário para a execução de alguns scripts Tex.
 
-4. **Instale a Extensão LaTeX Workshop**
-   - No Visual Studio Code, instale a extensão **LaTeX Workshop** desenvolvida por James Yu. Esta extensão facilita a edição e compilação de arquivos LaTeX diretamente no VSC.
+4. **Instale a Extensão Tex Workshop**
+   - No Visual Studio Code, instale a extensão **LaTex Workshop** desenvolvida por James Yu. Esta extensão facilita a edição e compilação de arquivos Tex diretamente no VSC.
 
 5. **Reinicie o Visual Studio Code**
    - Para garantir que todas as configurações sejam aplicadas corretamente, reinicie o VSC após a instalação das extensões.
@@ -34,4 +34,4 @@ Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e tr
 
 ---
 
-Agora você está pronto para trabalhar com LaTeX no Visual Studio Code usando o template FATEC!
+Agora você está pronto para trabalhar com Tex no Visual Studio Code usando o template FATEC!
