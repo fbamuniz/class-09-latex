@@ -1,4 +1,4 @@
-# Como Usar o LaTeX no Visual Studio Code (VSC)
+# Como Usar o TeX no Visual Studio Code (VSC)
 
 Siga este guia para configurar o ambiente LaTeX no Visual Studio Code (VSC) e trabalhar com o template fornecido de maneira eficiente.
 
