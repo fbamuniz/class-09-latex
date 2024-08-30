@@ -1,0 +1,878 @@
+%% Identificação e atualizações
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{fatec-article}[2024/02/15 v1.6 fatec-article package]
+
+%% Opções do pacote (^ = padrão; ¹ = Leiaute A; ² = Leiaute B)
+\RequirePackage{xpatch}
+%%%% Leiaute (margens): A (esquerda menor + recuo) ou B (iguais) (^)
+\newbool{@LayoutA}
+\DeclareOption{Layout=A}{%
+  \booltrue{@LayoutA}%
+  \ExecuteOptions{%
+    Font      = Calibri,%
+    RuleWidth = Paper,%
+    SectNum   = Off,%
+    SectUnnum = Center,%
+  }%
+}
+\DeclareOption{Layout=B}{%
+  \boolfalse{@LayoutA}%
+  \ExecuteOptions{%
+    Font      = Arial,%
+    RuleWidth = Zero,%
+    SectNum   = On,%
+    SectUnnum = Left,%
+  }%
+}
+%%%% Fonte principal: Arial (²), Calibri (¹), Times ou LaTeX
+\newbool{@FontArial}
+\newbool{@FontCalibri}
+\newbool{@FontTimes}
+\DeclareOption{Font=Arial}{%
+  \booltrue{@FontArial}%
+  \boolfalse{@FontCalibri}%
+  \boolfalse{@FontTimes}%
+}
+\DeclareOption{Font=Calibri}{%
+  \boolfalse{@FontArial}%
+  \booltrue{@FontCalibri}%
+  \boolfalse{@FontTimes}%
+}
+\DeclareOption{Font=Times}{%
+  \boolfalse{@FontArial}%
+  \boolfalse{@FontCalibri}%
+  \booltrue{@FontTimes}%
+}
+\DeclareOption{Font=LaTeX}{%
+  \boolfalse{@FontArial}%
+  \boolfalse{@FontCalibri}%
+  \boolfalse{@FontTimes}%
+}
+%%%% Largura de linha (cabeçalho e rodapé): Zero (²), Text ou Paper (¹)
+\newbool{@RuleWidthZero}
+\newbool{@RuleWidthText}
+\DeclareOption{RuleWidth=Zero}{%
+  \booltrue{@RuleWidthZero}%
+  \boolfalse{@RuleWidthText}%
+}
+\DeclareOption{RuleWidth=Text}{%
+  \boolfalse{@RuleWidthZero}%
+  \booltrue{@RuleWidthText}%
+}
+\DeclareOption{RuleWidth=Paper}{%
+  \boolfalse{@RuleWidthZero}%
+  \boolfalse{@RuleWidthText}%
+}
+
+%%%% Cor de hyperlinks: DarkBlue (^) ou TextColor
+\newbool{@LinkDarkBlue}
+\DeclareOption{Link=DarkBlue}{\booltrue{@LinkDarkBlue}}
+\DeclareOption{Link=TextColor}{\boolfalse{@LinkDarkBlue}}
+%%%% Numeração de páginas: On (^) ou Off
+\newbool{@PageNumOn}
+\DeclareOption{PageNum=On}{\booltrue{@PageNumOn}}
+\DeclareOption{PageNum=Off}{\boolfalse{@PageNumOn}}
+%%%% Numeração de seções (\section): On (²) ou Off (¹)
+\newbool{@SectNumOn}
+\DeclareOption{SectNum=On}{\booltrue{@SectNumOn}}
+\DeclareOption{SectNum=Off}{\boolfalse{@SectNumOn}}
+%%%% Alinhamento de seções (\section*): Center (¹) ou Left (²)
+\newbool{@SectUnnumLeft}
+\DeclareOption{SectUnnum=Left}{\booltrue{@SectUnnumLeft}}
+\DeclareOption{SectUnnum=Center}{\boolfalse{@SectUnnumLeft}}
+%%%% Alinhamento de legendas: Center (^) ou Left
+\newbool{@CaptionLeft}
+\DeclareOption{Caption=Left}{\booltrue{@CaptionLeft}}
+\DeclareOption{Caption=Center}{\boolfalse{@CaptionLeft}}
+%%%% Alinhamento de fonte (referência): Center (^) ou Left
+\newbool{@SourceLeft}
+\DeclareOption{Source=Left}{\booltrue{@SourceLeft}}
+\DeclareOption{Source=Center}{\boolfalse{@SourceLeft}}
+%%%% Citação ABNT: AAY (Nome, Ano) (^), NRB (1) ou NSB [1]
+\newbool{@ABNTCitNRB}
+\newbool{@ABNTCitNSB}
+\DeclareOption{ABNTCit=AAY}{%
+  \boolfalse{@ABNTCitNRB}%
+  \boolfalse{@ABNTCitNSB}%
+}
+\DeclareOption{ABNTCit=NRB}{%
+  \booltrue{@ABNTCitNRB}%
+  \boolfalse{@ABNTCitNSB}%
+}
+\DeclareOption{ABNTCit=NSB}{%
+  \booltrue{@ABNTCitNRB}%
+  \booltrue{@ABNTCitNSB}%
+}
+%%%% Ícone de DOI em referências: Icon ou Name (^)
+\newbool{@BibDOIIcon}
+\DeclareOption{BibDOI=Icon}{\booltrue{@BibDOIIcon}}
+\DeclareOption{BibDOI=Name}{\boolfalse{@BibDOIIcon}}
+%%%% Ícone de URL em referências: Icon ou URL (^)
+\newbool{@BibURLIcon}
+\DeclareOption{BibURL=Icon}{\booltrue{@BibURLIcon}}
+\DeclareOption{BibURL=URL}{\boolfalse{@BibURLIcon}}
+%%%% Índice remissivo (makeindex): On ou Off (^)
+\newbool{@MakeIndexOn}
+\DeclareOption{MakeIndex=On}{\booltrue{@MakeIndexOn}}
+\DeclareOption{MakeIndex=Off}{\boolfalse{@MakeIndexOn}}
+%%%% Aviso de indisponíveis, execução de padrões e processamento de atribuídas
+\DeclareOption*{\PackageWarning{fatec-article}{Unknown option `\CurrentOption'}}
+\ExecuteOptions{%
+  Layout    = B,%
+  AffilIcon = Off,
+  Link      = DarkBlue,%
+  PageNum   = On,%
+  Caption   = Center,%
+  Source    = Center,%
+  ABNTCit   = AAY,%
+  BibDOI    = Name,%
+  BibURL    = URL,%
+  MakeIndex = Off,%
+}
+\ProcessOptions\relax%
+
+%% Pacotes utilizados
+\RequirePackage{ifdraft}
+\RequirePackage{iftex}
+\RequirePackage{babel}
+\ifboolexpr{ bool {LuaTeX} or bool {XeTeX} }{%
+  \RequirePackage{fontspec}%
+  \RequirePackage{amsmath}%
+  \RequirePackage[bold-style = ISO]{unicode-math}%
+  \defaultfontfeatures{Ligatures = TeX}%
+  \ifboolexpr{ bool {@FontArial} or bool {@FontTimes} }{%
+    \setmainfont{TeX Gyre Termes}%
+    \setsansfont{TeX Gyre Heros}[\ifbool{@FontTimes}{Scale = 0.9}{}]%
+    \setmathfont{TeX Gyre Termes Math}%
+    \setmathfont{TeX Gyre Termes Math}[version = bold]%
+  }{}%
+}{%
+  \RequirePackage[utf8]{inputenc}%
+  \RequirePackage[T1]{fontenc}%
+  \RequirePackage{lmodern}%
+  \ifboolexpr{ bool {@FontArial} or bool {@FontTimes} }{%
+    \RequirePackage[\ifbool{@FontArial}{helvratio = 1}{}]{newtxtext}%
+    \RequirePackage[smallerops]{newtxmath}%
+  }{%
+    \RequirePackage{amsmath}%
+    \RequirePackage{textcomp}%
+  }%
+}
+\ifbool{@FontCalibri}{\RequirePackage[sfdefault, lining, tabular]{carlito}}{}
+\RequirePackage{fontawesome5}
+\RequirePackage{microtype}
+\RequirePackage{ragged2e}
+\RequirePackage[overload]{textcase}
+\RequirePackage{csquotes}
+\RequirePackage{lipsum}
+\@ifpackageloaded{xcolor}{%
+  \@ifpackagewith{xcolor}{table, xcdraw}{}{\RequirePackage[table, xcdraw]{xcolor}}%
+}{%
+  \RequirePackage[table, xcdraw]{xcolor}%
+}
+\RequirePackage[\ifdraft{showframe}{}]{geometry}
+\ifbool{@LayoutA}{\RequirePackage{scrextend}}{}
+\RequirePackage{indentfirst}
+\RequirePackage{fancyhdr}
+\RequirePackage[bottom, hang]{footmisc}
+\RequirePackage{enumitem}
+\RequirePackage{environ}
+\RequirePackage{icomma}
+\RequirePackage{newfloat}
+\RequirePackage[content = {\faFileImage}, position = {center}]{draftfigure}
+\RequirePackage{eso-pic}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{caption}
+\RequirePackage[%
+  style        = abnt\ifbool{@ABNTCitNRB}{-numeric}{},%
+  natbib       = true,%
+  sorting      = \ifbool{@ABNTCitNRB}{none}{nty},%
+  uniquename   = minfull,%
+  uniquelist   = \ifbool{@ABNTCitNRB}{false}{minyear},%
+  extradate    = true,%
+  repeatfields = true,%
+  \ifbool{@ABNTCitNRB}{comp = true,}{}%
+]{biblatex}
+\ifbool{@MakeIndexOn}{%
+  \RequirePackage{multicol}%
+  \RequirePackage{makeidx}%
+}{}
+\RequirePackage[hyphens]{xurl}
+\RequirePackage{hyperref}
+\RequirePackage[capitalise, nameinlink]{cleveref}
+
+%% Configuração do pacote microtype
+\@ifpackagelater{microtype}{2021/10/31}{\microtypesetup{nopatch = {eqnum,footnote}}}{}
+
+%% Fontes
+\ifbool{@FontArial}{\renewcommand*{\familydefault}{\sfdefault}}{}
+\newcommand*{\VIIptFS}{\fontsize{7}{9}\selectfont}
+\newcommand*{\IXptFS}{\fontsize{9}{11}\selectfont}
+\newcommand*{\XVptFS}{\fontsize{15}{17}\selectfont}
+\csletcs{old@ttfamily}{ttfamily}
+\renewrobustcmd*{\ttfamily}{\old@ttfamily\hyphenchar\font=`\-\relax}
+\csletcs{Old@TeX}{TeX}
+\csletcs{Old@LaTeX}{LaTeX}
+\AtBeginDocument{%
+  \renewrobustcmd*{\TeX}{{\fontfamily{lmr}\selectfont\protect\Old@TeX}}%
+  \renewrobustcmd*{\LaTeX}{{\fontfamily{lmr}\selectfont\Old@LaTeX}}%
+}
+\newrobustcmd*{\fatec}{UTF{\tiny\kern-0.1em\hbox{PR}}}
+
+%% Cores
+\definecolor{fatecBlack}{cmyk}{0, 0, 0, 1}
+\definecolor{fatecRed}{RGB}{210, 0, 0} 
+\definecolor{ADarkBlue}{RGB}{0, 0, 51}
+\definecolor{AGray}{RGB}{153, 153, 153}
+\@ifundefinedcolor{TextColor}{%
+  \colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue}{.}}%
+}{%
+  \colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue!25!TextColor}{TextColor}}%
+  \color{TextColor}%
+}
+\@ifundefinedcolor{EmphColor}{%
+  \colorlet{DocColor}{.}%
+  \colorlet{TableColor}{gray}%
+}{%
+  \colorlet{DocColor}{EmphColor}%
+  \colorlet{TableColor}{EmphColor}%
+}
+
+%% Hiperlinks e URLs
+\hypersetup{%
+  breaklinks         = true,%
+  colorlinks         = true,%
+  allcolors          = LinkColor,%
+  bookmarksnumbered  = true,%
+  pdfdisplaydoctitle = true,%
+  pdfencoding        = unicode,%
+}
+\pdfstringdefDisableCommands{%
+  \csletcs{MakeUppercase}{@firstofone}%
+  \renewcommand*{\\}{ }%
+}
+\DeclareUrlCommand{\URL}{%
+  \renewcommand*{\UrlFont}{\color{LinkColor}\ttfamily}%
+  \renewcommand*{\UrlLeft}{<}%
+  \renewcommand*{\UrlRight}{>}%
+}
+\csgappto{UrlBreaks}{\UrlOrds}
+\csgappto{UrlSpecials}{\do\_{\_\penalty\UrlBreakPenalty}}
+
+%% Variáveis dependentes do idioma
+\newcommand*{\SectAutoRefName}[1]{\csletcs{#1autorefname}{Cref@section@name}}
+\newcommand*{\MECName}{Ministério da Educação}
+\newcommand*{\fatecName}{Faculdade de Tecnologia}
+\newcommand*{\BRName}{Brasil}
+\newcommand*{\CityCall}{Registro}
+\newcommand*{\InstDeptEx}{Desenvolvimento de Software Multiplataforma}
+\newcommand*{\FullNameCall}{Nome Completo do{(a)} Autor{(a)}}
+\newcommand*{\KWCall}{Palavras-chave}
+
+\newcommand*{\HdrWrng}{Inserir Cabeçalho\\(\LengthTo*{cm}{\HFRuleWd}~cm \texttimes\ \LengthTo*{cm}{\TopLine}~cm)}
+\newcommand*{\LogoWrng}{Inserir Logo}
+\newcommand*{\SrcCall}{Fonte}
+\ifbool{@MakeIndexOn}{%
+  \renewcommand*{\seename}{ver}%
+  \renewcommand*{\seealso}{ver também}%
+}{}
+\newcommand*{\TtlPgName}{Página de Título}
+\newcommand*{\AcronymsListName}{Lista de Abreviaturas e Siglas}
+\newcommand*{\SymbolsListName}{Lista de Símbolos}
+\newcommand*{\flowchartname}{Fluxograma}
+\newcommand*{\photographname}{Fotografia}
+\newcommand*{\graphname}{Gráfico}
+\newcommand*{\tabframedname}{Quadro}
+\renewcommand*{\listfigurename}{Lista de Ilustrações}
+\Crefname{flowchart}{Fluxograma}{Fluxogramas}
+\crefname{flowchart}{Flux.}{Fluxs.}
+\Crefname{photograph}{Fotografia}{Fotografias}
+\crefname{photograph}{Fot.}{Fots.}
+\Crefname{graph}{Gráfico}{Gráficos}
+\crefname{graph}{Gráf.}{Gráfs.}
+\Crefname{tabframed}{Quadro}{Quadros}
+\crefname{tabframed}{Quad.}{Quads.}
+\Crefname{annex}{Anexo}{Anexos}
+\crefname{annex}{Anexo}{Anexos}
+\forcsvlist{\SectAutoRefName}{section, subsection, subsubsection, paragraph, subparagraph}
+%%%% Definições em português
+\csappto{extrasbrazilian}{%
+  \renewcommand*{\MECName}{Ministério da Educação}%
+  \renewcommand*{\fatecName}{Faculdade de Tecnologia}%
+  \renewcommand*{\BRName}{Brasil}%
+  \renewcommand*{\CityCall}{Registro}%
+  \renewcommand*{\InstDeptEx}{Desenvolvimento de Software Multiplataforma}%
+  \renewcommand*{\FullNameCall}{Nome Completo do{(a)} Autor{(a)}}%
+  \renewcommand*{\KWCall}{Palavras-chave}%
+
+  \renewcommand*{\HdrWrng}{Inserir Cabeçalho\\(\LengthTo*{cm}{\HFRuleWd}~cm \texttimes\ \LengthTo*{cm}{\TopLine}~cm)}%
+  \renewcommand*{\LogoWrng}{Inserir Logo}%
+  \renewcommand*{\SrcCall}{Fonte}%
+  \ifbool{@MakeIndexOn}{%
+    \renewcommand*{\seename}{ver}%
+    \renewcommand*{\seealso}{ver também}%
+  }{}%
+  \renewcommand*{\TtlPgName}{Página de Título}%
+  \renewcommand*{\AcronymsListName}{Lista de Abreviaturas e Siglas}%
+  \renewcommand*{\SymbolsListName}{Lista de Símbolos}%
+  \renewcommand*{\flowchartname}{Fluxograma}%
+  \renewcommand*{\photographname}{Fotografia}%
+  \renewcommand*{\graphname}{Gráfico}%
+  \renewcommand*{\tabframedname}{Quadro}%
+  \renewcommand*{\listfigurename}{Lista de Ilustrações}%
+  \Crefname{flowchart}{Fluxograma}{Fluxogramas}%
+  \crefname{flowchart}{Flux.}{Fluxs.}%
+  \Crefname{photograph}{Fotografia}{Fotografias}%
+  \crefname{photograph}{Fot.}{Fots.}%
+  \Crefname{graph}{Gráfico}{Gráficos}%
+  \crefname{graph}{Gráf.}{Gráfs.}%
+  \Crefname{tabframed}{Quadro}{Quadros}%
+  \crefname{tabframed}{Quad.}{Quads.}%
+  \Crefname{annex}{Anexo}{Anexos}%
+  \crefname{annex}{Anexo}{Anexos}%
+  \forcsvlist{\SectAutoRefName}{section, subsection, subsubsection, paragraph, subparagraph}%
+}
+
+%% Definições de comandos
+\newcommand*{\MakeIcon}[2][\faQuestionCircle]{%
+  \ifdraft{%
+    \ifblank{#1}{\faQuestionCircle}{#1}%
+  }{%
+    \ifblank{#2}{}{\XeTeXLinkBox{\includegraphics[height = \fontcharht\font`A]{#2}}}%
+  }%
+}
+\newcommand*{\HRef}[2]{\ifblank{#1}{}{\href{#1}{\ifblank{#2}{#1}{#2}}}}
+
+\newcommand*{\SourceOrNote}[2][\SrcCall:]{%
+  \ifblank{#2}{}{%
+    \begingroup%
+    \ifblank{#1}{\booltrue{@SourceLeft}}{}%
+    \ifbool{@SourceLeft}{%
+      \captionsetup{%
+        format          = hang,%
+        justification   = justified,%
+        singlelinecheck = false,%
+      }%
+    }{}%
+    \caption*{\ifblank{#1}{}{#1 }#2}%
+    \endgroup%
+  }%
+}
+
+\newcommand*{\s@LengthTo}[2]{\strip@pt\dimexpr\ifdimless{#2}{\z@}{-#2}{#2}*65536/\dimexpr1#1\relax}
+\newcommand*{\@LengthTo}[2]{\strip@pt\dimexpr#2*65536/\dimexpr1#1\relax}
+\newcommand*{\LengthTo}{\@ifstar{\s@LengthTo}{\@LengthTo}}
+
+%%%% Instituição
+\define@key{Institution}{Campus}{\ifblank{#1}{}{\csdef{InstCmps}{#1}}}
+\define@key{Institution}{Department}{\ifblank{#1}{}{\csdef{InstDept}{#1}}}
+\define@key{Institution}{DeptLogo}{\ifblank{#1}{}{\csdef{InstDeptLogo}{#1}}}
+\csletcs{KV@Institution@campus}{KV@Institution@Campus}
+\csletcs{KV@Institution@department}{KV@Institution@Department}
+\csletcs{KV@Institution@deptlogo}{KV@Institution@DeptLogo}
+\newcommand*{\InstitutionInfo}[1]{%
+  \ifblank{#1}{}{%
+    \setkeys{Institution}{%
+      Campus     = {},%
+      Department = {},%
+      DeptLogo   = {},%
+      #1,%
+    }%
+    \ifcsvoid{InstCmps}{%
+      \csundef{InstDept}%
+      \csundef{InstDeptLogo}%
+    }{}%
+  }%
+}
+%%%% Title
+\newcommand*{\Title}[2]{%
+  \ifblank{#1}{}{%
+    \csdef{@Title}{#1}%
+    \csappto{extrasbrazilian}{\csdef{@Title}{#1}}%
+  }%
+  \ifblank{#2}{}{\csappto{extrasenglish}{\csdef{@Title}{#2}}}%
+}
+\Title{%
+  \ifbool{@LayoutA}{%
+    O título deve conter até 70 caracteres sem espaço, não deve conter caracteres especiais ou símbolos. %
+    Utilize caixa baixa como neste exemplo e letra maiúscula somente quando necessário%
+  }{%
+     %
+  }%
+}{%
+  \ifbool{@LayoutA}{%
+   Title in english, follow the same format as the title in portuguese%
+  }{%
+    DIÁRIO DE BORDO
+  }%
+}
+%%%% Data(s)
+\newcommand*{\YearNum}{\number\year}
+\newcommand*{\Dates}[3][]{%
+  \ifblank{#1}{\renewcommand*{\YearNum}{}}{\renewcommand*{\YearNum}{#1}}%
+}
+\csletcs{Date}{date}
+\AtBeginDocument{\Date{\AppdDate}}
+%%%% Autor(es) e palavras-chave
+\newcommand{\MakeList}[4][]{%
+  \ifboolexpr{ test {\ifcsundef{the#3Ctr}} or test {\ifcsundef{the#3Num}} or test {\ifcsundef{the#3Tmp}} }{}{%
+    \setcounter{#3Tmp}{\ifnumgreater{\value{#3Num}}{#2}{#2}{\value{#3Num}}}%
+    \@whilenum\value{#3Ctr}<\value{#3Tmp}\do{%
+      \stepcounter{#3Ctr}%
+      \ifblank{#1}{}{\csdef{#1}{#3\Alph{#3Ctr}}}%
+      #4%
+    }%
+    \ifblank{#1}{}{\csundef{#1}}%
+    \setcounter{#3Ctr}{0}%
+    \setcounter{#3Tmp}{0}%
+  }%
+}
+\newcommand*{\Attrib@Num@Ex}[3][1]{%
+  \ifboolexpr{ test {\ifcsundef{the#2Ctr}} or test {\ifcsundef{the#2Num}} }{}{%
+    \setcounter{#2Num}{\ifblank{#1}{1}{#1}}%
+    \@whilenum\value{#2Ctr}<\value{#2Num}\do{%
+      \stepcounter{#2Ctr}%
+      #3%
+    }%
+    \setcounter{#2Ctr}{0}%
+  }%
+}
+%%%%%% Autor(es)
+\newcounter{AuthCtr}
+\newcounter{AuthNum}
+\newcounter{AuthTmp}
+\define@key{Author}{Name}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Name}{#1}}}}
+
+\csletcs{KV@Author@name}{KV@Author@Name}
+
+\newcommand*{\Author}[2]{%
+  \ifboolexpr{ test {\ifcsundef{theAuthNum}} or test {\ifcsundef{theAuthTmp}} }{}{%
+    \ifblank{#2}{}{%
+      \setcounter{AuthTmp}{#1}%
+      \csdef{ATag}{Auth\Alph{AuthTmp}}%
+      \setkeys{Author}{%
+        Name        = {},%
+        #2,%
+      }%
+      \ifnumless{\value{AuthNum}}{\value{AuthTmp}}{\setcounter{AuthNum}{\value{AuthTmp}}}{}%
+      \setcounter{AuthTmp}{0}%
+      \csundef{ATag}%
+    }%
+  }%
+}
+\newcommand*{\AuthorsNumber}[1][1]{%
+  \Attrib@Num@Ex[#1]{Auth}{%
+    \Author{\value{AuthCtr}}{%
+      Name        = {\FullNameCall-A\arabic{AuthCtr}}%
+    }%
+  }%
+}
+\AuthorsNumber%
+
+%% Texto
+\geometry{%
+  top          = 35mm,%
+  left         = \ifbool{@LayoutA}{10mm}{20mm},%
+  right        = 20mm,%
+  bottom       = 25mm,%
+  head         = 25mm,%
+  headsep      = 5mm,%
+  footskip     = 5mm,%
+  marginpar    = 15mm,%
+  marginparsep = 2.5mm,%
+}
+\setlength{\parindent}{\ifbool{@LayoutA}{7mm}{12.5mm}}
+\setlength{\parskip}{\ifbool{@LayoutA}{6\p@\@plus\p@}{\z@\@plus\p@}}
+\newcommand*{\Add@Period}[1]{\ifblank{#1}{}{#1\@addpunct{.}}}
+\newcommand*{\LessSloppy}{%
+  \setlength{\emergencystretch}{3em}%
+  \hbadness\@M%
+}
+\csgappto{Centering}{%
+  \sloppy%
+  \hbadness\@M%
+  \hyphenpenalty\@M%
+  \exhyphenpenalty\@M%
+}
+\newrobustcmd*{\ENLangIt}[1]{\foreignlanguage{english}{\textit{#1}}}
+\newrobustcmd*{\ENLangNoIt}[1]{\foreignlanguage{english}{#1}}
+\newrobustcmd*{\ENLang}{\@ifstar{\ENLangIt}{\ENLangNoIt}}
+\AtBeginDocument{\frenchspacing}
+\ifboolexpr{ bool {XeTeX} or test {\ifdraft} }{\LessSloppy}{}
+
+%% Cabeçalhos e rodapés
+\newcounter{StmpCtr}
+\newlength{\TopLine}
+\newlength{\BottomLine}
+\setlength{\TopLine}{-\topmargin-\headheight-1in}
+\setlength{\BottomLine}{\paperheight-\textheight-\topmargin-\headheight-\headsep-\footskip-1in}
+\dimdef{\HFRuleWd}{\ifbool{@RuleWidthText}{\textwidth}{\paperwidth}}
+\dimdef{\HFRuleSkip}{\ifbool{@RuleWidthText}{\oddsidemargin+1in}{\z@}}
+\newsavebox{\HFRuleBox}
+\savebox{\HFRuleBox}{{\color{DocColor}\hskip\HFRuleSkip\rule{\HFRuleWd}{0.5\p@}}}
+\AddToShipoutPictureFG{%
+  \normalcolor%
+  \ifcsvoid{EvntHdr}{}{%
+    \AtPageUpperLeft{%
+      \raisebox{-\height}{%
+        \hskip\HFRuleSkip%
+        \ifcsstring{EvntHdr}{example-image}{%
+          \setlength{\fboxsep}{\z@}%
+          \setkeys{draftfigure}{content = {\faFileImage{\\}\HdrWrng}, size = {tiny}}%
+          \colorbox{gray!25!white}{\includegraphics[width = \HFRuleWd, height = 30mm, draft]{\EvntHdr}}%
+        }{%
+          \includegraphics[width = \HFRuleWd, height = 30mm]{\EvntHdr}%
+        }%
+      }%
+    }%
+  }%
+  \ifbool{@RuleWidthZero}{}{%
+    \AtPageUpperLeft{\raisebox{\TopLine}{\usebox{\HFRuleBox}}}%
+    \AtPageLowerLeft{\raisebox{\BottomLine}{\usebox{\HFRuleBox}}}%
+  }%
+} 
+  
+\renewcommand*{\headrule}{}
+\fancypagestyle{TitlePage}{%
+  \fancyhf{}%
+  \fancyhead[L]{%
+    \ifcsvoid{EvntName}{%
+      \begin{minipage}[t]{\textwidth}%
+      \begin{minipage}[b][15mm][c]{35mm}%
+      \raggedright%
+      \includegraphics[height = 35mm]{fatec}%
+      \end{minipage}%
+      \ifcsvoid{InstDeptLogo}{{\color{fatecBlack}\vrule\@width0.5\p@}\hskip6\p@}{\ifbool{@LayoutA}{\hfill}{}}%
+      \begin{minipage}[b][15mm][c]{100mm}%
+      \ifcsvoid{InstDeptLogo}{}{\centering}\IXptFS\sffamily%
+      \MECName\vskip-\p@%
+      {\bfseries\fatecName}\vskip-\p@%
+      Campus \ifcsvoid{InstCmps}{\CityCall}{\InstCmps}\vskip-\p@%
+      \ifcsvoid{InstDept}{\InstDeptEx}{\InstDept}%
+      \end{minipage}%
+     
+      \vskip2\p@%
+      {\color{fatecBlack}\hrule\@height0.5\p@}\vskip\p@%
+      {\color{fatecRed}\hrule\@height0.5\p@}%
+      \end{minipage}%
+    }{%
+      \makebox[\z@][l]{\PrintEventLogo}%
+      \begin{minipage}[b]{\textwidth}%
+      \ifbool{@LayoutA}{\color{DocColor}}{\color{AGray}}\raggedleft\footnotesize\EvntName%
+      \ifcsvoid{EvntDate}{}{{\\}\EvntDate}%
+      \ifcsvoid{EvntLocal}{}{{\\}\EvntLocal}%
+      \end{minipage}%
+    }%
+    \vskip\z@\VIIptFS\strut%
+  }%
+  \fancyfoot[L]{%
+    \vskip2\p@%
+    \begin{minipage}[b]{\textwidth}%
+    \ifbool{@LayoutA}{%
+      \raisebox{-0.75\BottomLine}{\PrintSDGStamps}%
+      \ifbool{@PageNumOn}{\hfill\color{DocColor}\VIIptFS\pagename\ \textbar\ \thepage}{}%
+    }{%
+      \colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue!25!AGray}{AGray}}%
+      \color{AGray}%
+     {%
+        \footnotesize\ifcsvoid{EvntURL}{}{\url{\EvntURL}}\ifbool{@PageNumOn}{\hfill\thepage}{}%
+      }%
+    }%
+    \end{minipage}%
+  }%
+}
+\fancypagestyle{plain}{}
+\fancyhf{}
+\fancyhead[L]{%
+  
+  \vskip\z@\VIIptFS\strut%
+}
+\fancyfoot[L]{%
+  \vskip2\p@%
+  \begin{minipage}[b]{\textwidth}%
+  \ifbool{@LayoutA}{%
+    \colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue!25!DocColor}{DocColor}}%
+    \color{DocColor}\VIIptFS\ifcsvoid{EvntURL}{}{\url{\EvntURL}}\ifbool{@PageNumOn}{\hfill\pagename\ \textbar\ \thepage}{}%
+  }{%
+    \colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue!25!AGray}{AGray}}%
+    \color{AGray}\footnotesize\ifcsvoid{EvntURL}{}{\url{\EvntURL}}\ifbool{@PageNumOn}{\hfill\thepage}{}%
+  }%
+  \end{minipage}%
+}
+\pagestyle{fancy}
+
+%% Seções
+\setcounter{secnumdepth}{\ifbool{@SectNumOn}{5}{0}}
+\gluedef{\BSSkip}{-12\p@\@plus-4\p@\@minus-4\p@}
+\gluedef{\ASSkip}{\ifbool{@LayoutA}{6\p@\@plus2\p@\@minus2\p@}{12\p@\@plus4\p@\@minus4\p@}}
+\crefalias{paragraph}{section}
+\crefalias{subparagraph}{section}
+\RenewDocumentCommand{\section}{ s O{#3} m O{} }{%
+  \IfBooleanTF{#1}{%
+    \@startsection{section}{1}%
+      {\z@}{-\BSSkip}{\ASSkip}%
+      {\ifbool{@SectUnnumLeft}{}{\centering}\color{DocColor}\bfseries}%
+      *{\MakeUppercase{#3}}%
+    \renewcommand*{\@currentlabelname}{#3}%
+    \ifblank{#4}{}{%
+      \label{#4}%
+      \addcontentsline{toc}{section}{\numberlinespace#3}%
+    }%
+  }{%
+    \@startsection{section}{1}%
+      {\z@}{-\BSSkip}{\ASSkip}%
+      {\color{DocColor}\bfseries}%
+      [#2]{\MakeUppercase{#3}}%
+  }%
+}
+\RenewDocumentCommand{\subsection}{ s O{#3} m }{%
+  \IfBooleanTF{#1}{%
+    \@startsection{subsection}{2}%
+      {\z@}{-\BSSkip}{\ASSkip}%
+      {\color{DocColor}}%
+      *{\MakeUppercase{#3}}%
+    \renewcommand*{\@currentlabelname}{#3}%
+  }{%
+    \@startsection{subsection}{2}%
+      {\z@}{-\BSSkip}{\ASSkip}%
+      {\color{DocColor}}%
+      [#2]{\MakeUppercase{#3}}%
+  }%
+}
+\renewcommand*{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{-\BSSkip}{\ASSkip}{\color{DocColor}}}
+\renewcommand*{\paragraph}{\@startsection{paragraph}{4}{\z@}{-\BSSkip}{\ASSkip}{\color{DocColor}}}
+\renewcommand*{\subparagraph}{\@startsection{subparagraph}{5}{-\parindent}{-\BSSkip}{\ASSkip}{\color{DocColor}\emph}}
+
+%% Listas de itens
+\AtBeginEnvironment{itemize}{\LessSloppy}
+\AtBeginEnvironment{enumerate}{\LessSloppy}
+\setlist{%
+  topsep     = \z@,%
+  partopsep  = \z@,%
+  parsep     = \z@,%
+  itemsep    = \z@,%
+  leftmargin = *,%
+  align      = left,%
+}
+\setlist[1]{labelindent = \parindent}
+\newcommand*{\alphsect}{\alph*^^29}
+\renewcommand*{\@listI}{%
+  \leftmargin\leftmargini%
+  \topsep\z@%
+  \parsep\z@%
+  \itemsep\z@%
+}
+
+%% Notas de rodapé
+\setlength{\footnotemargin}{1em}
+\csletcs{old@footnotetext}{@footnotetext}
+\renewcommand*{\@footnotetext}[1]{\old@footnotetext{\Add@Period{\LessSloppy#1}}}
+\renewcommand*{\footnoterule}{\kern-3\p@\hrule\@width50mm\kern2.5\p@}
+\renewcommand*{\@makefntext}[1]{%
+  \setlength{\hangindent}{1em}%
+  \makebox[1em][l]{\@makefnmark}\Add@Period{\LessSloppy#1}%
+}
+\csletcs{old@makefntext}{@makefntext}
+\cspreto{@thanks}{\csletcs{@makefntext}{old@makefntext}}
+\csletcs{old@footnote}{footnote}
+\newcommand*{\ufootnote}[2][\faExclamationTriangle]{%
+  \begingroup%
+  \csletcs{@makefnmark}{relax}%
+  \renewcommand*{\thefootnote}{\ifblank{#1}{}{#1}}%
+  \renewcommand*{\@makefntext}[1]{%
+    \setlength{\hangindent}{1em}%
+    \makebox[1em][l]{\ifcsvoid{thefootnote}{}{\textsuperscript{\thefootnote}}}\Add@Period{\LessSloppy#2}%
+  }%
+  {\old@footnote{#2}}%
+  \addtocounter{footnote}{-1}%
+  \endgroup%
+}
+
+%% Objetos flutuantes: figuras, tabelas, etc.
+\graphicspath{{./Headers/}{./Illustrations/}{./Logos/}}
+\arrayrulecolor{DocColor}
+\setlength{\textfloatsep}{12\p@\@plus4\p@\@minus4\p@}
+\setlength{\intextsep}{12\p@\@plus4\p@\@minus4\p@}
+\setlength{\floatsep}{12\p@\@plus4\p@\@minus4\p@}
+\setlength{\aboverulesep}{\z@}
+\setlength{\belowrulesep}{\z@}
+\setlength{\extrarowheight}{0.25ex}
+\setlength{\arrayrulewidth}{\lightrulewidth}
+\newcolumntype{?}[1]{!{\color{DocColor}\vrule\@width\ifblank{#1}{\heavyrulewidth}{#1}}}
+\newcolumntype{e}[1]{@{\extracolsep{\ifblank{#1}{\fill}{#1}}}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\raggedleft\arraybackslash}X}
+\DeclareFloatingEnvironment[fileext = low, name = \flowchartname]{flowchart}
+\DeclareFloatingEnvironment[fileext = lop, name = \photographname]{photograph}
+\DeclareFloatingEnvironment[fileext = loh, name = \graphname]{graph}
+\DeclareFloatingEnvironment[fileext = lod, name = \tabframedname]{tabframed}
+
+%%%% Legendas
+\newlength{\CaptionWidth}
+\setlength{\CaptionWidth}{\linewidth}
+\newcommand*{\SetCaptionWidth}[1]{%
+  \ifblank{#1}{}{%
+    \setlength{\CaptionWidth}{#1}%
+    \captionsetup{width = \CaptionWidth}%
+  }%
+}
+\captionsetup{%
+  labelsep      = endash,%
+  justification = centerlast,%
+  font          = {small, bf},%
+  skip          = 2\p@,%
+}
+\ifbool{@CaptionLeft}{%
+  \captionsetup{%
+    format          = hang,%
+    justification   = justified,%
+    singlelinecheck = false,%
+  }%
+}{}
+\ifcsstring{@ptsize}{2}{\captionsetup{font = {footnotesize, bf}}}{}
+
+%% Página de título
+\ifpatchable*{\and}{%
+  \xpatchcmd{\and}{%
+    \hskip 1em \@plus.17fil%
+  }{%
+    \hskip\z@\@plus0fil%
+  }{}{}%
+}{}
+\csletcs{old@thanks}{thanks}
+\renewcommand*{\thanks}[1]{\begingroup\csletcs{rlap}{relax}\old@thanks{#1}\endgroup}
+%%%% Leiaute A
+\newcommand*{\@maketitleA}{%
+  \pdfbookmark[1]{\TtlPgName}{ttlpg}%
+  \thispagestyle{TitlePage}%
+  \begingroup%
+  \raggedleft%
+  \parbox{130mm}{\raggedleft\VIIptFS\ifcsvoid{EvntURL}{\null}{\url{\EvntURL}}}\vskip10\p@%
+  \begin{minipage}{130mm}%
+  \iflanguage{brazilian}{\selectlanguage{brazilian}}{\selectlanguage{english}}%
+  \raggedright\XVptFS\bfseries\@Title%
+  \end{minipage}%
+  \vskip10\p@%
+  \begin{minipage}{130mm}%
+  \iflanguage{brazilian}{\selectlanguage{english}}{\selectlanguage{brazilian}}%
+  \raggedright\XVptFS\bfseries\@Title%
+  \end{minipage}%
+
+  \hfill%
+  \begin{minipage}[t][\z@][t]{130mm}%
+  \begin{minipage}[t]{\linewidth}%
+  \iflanguage{brazilian}{\selectlanguage{brazilian}}{\selectlanguage{english}}%
+  \parbox[t]{\linewidth}{\centering\color{DocColor}\bfseries\MakeUppercase{\abstractname}}\vskip10\p@%
+  \parbox[t]{\linewidth}{\small\AbstrText}\vskip6\p@%
+  \parbox[t]{\linewidth}{\small{\color{DocColor}\KWCallFrmt{\KWCall}:} \KeywordsList{; }{.}}%
+  \end{minipage}%
+  \begin{minipage}[t]{\linewidth}%
+  \iflanguage{brazilian}{\selectlanguage{english}}{\selectlanguage{brazilian}}%
+  \parbox[t]{\linewidth}{\centering\color{DocColor}\bfseries\MakeUppercase{\abstractname}}%
+ 
+  \end{minipage}%
+  \end{minipage}%
+  \endgroup%
+  \clearpage%
+}
+%%%% Leiaute B
+\newcommand*{\@maketitleB}{%
+  \newpage%
+  \pdfbookmark[1]{\TtlPgName}{ttlpg}%
+  \begin{Center}%
+  \csletcs{footnote}{thanks}%
+  \begingroup%
+  \iflanguage{brazilian}{\selectlanguage{brazilian}}{\selectlanguage{english}}%
+  \large\bfseries\@title%
+  \ifboolexpr{ test {\ifcsvoid{@DOIName}} and test {\ifcsvoid{RcvdDate}} and test {\ifcsvoid{AppdDate}} }{}{%
+    \ufootnote[\faInfoCircle]{%
+      \ifcsvoid{@DOIName}{}{%
+        \ifbool{@AffilIconOn}{}{\textbf{DOI:} }%
+        \href{https://www.doi.org/\@DOIName}{\ifbool{@AffilIconOn}{\MakeIcon{doi}~}{}\@DOIName}%
+        \ifboolexpr{ test {\ifcsvoid{RcvdDate}} and test {\ifcsvoid{AppdDate}} }{}{. }%
+      }%
+      \ifcsvoid{RcvdDate}{}{\textbf{\RcvdCall:} \RcvdDate\ifcsvoid{AppdDate}{}{. }}%
+      \ifcsvoid{AppdDate}{}{\textbf{\AppdCall:} \AppdDate}%
+    }%
+  }%
+  \endgroup%
+  \vskip\baselineskip%
+  \begingroup%
+  \iflanguage{brazilian}{\selectlanguage{english}}{\selectlanguage{brazilian}}%
+  \large\bfseries\@title%
+  \endgroup%
+  \vskip\baselineskip%
+  \begingroup%
+  \normalsize%
+  \setlength{\lineskip}{0.5em}%
+  \begin{tabular}[t]{c}%
+  \@author%
+  \end{tabular}%
+  \endgroup%
+  \end{Center}%
+}
+
+%% Inicialização do documento
+\AtBeginDocument{%
+  \newrobustcmd*{\@Authors}{%
+
+  }%
+  \newrobustcmd*{\PDF@Authors}{}%
+  \MakeList[ATag]{\ifbool{@LayoutA}{8}{16}}{Auth}{%
+    \csxappto{PDF@Authors}{%
+      \csuse{\csuse{ATag}Name}%
+      \ifnumless{\value{AuthCtr}}{\value{AuthTmp}}{, }{}%
+    }%
+  }%
+  \title{\@Title}%
+  \author{\@Authors}%
+  \hypersetup{%
+    pdftitle    = {\@title},%
+    pdfauthor   = {\PDF@Authors},%
+    pdfsubject  = {\ifcsvoid{EvntAcr}{fatec \YearNum}{\EvntAcr}},%%
+  }%
+  \ifbool{@LayoutA}{%
+    \csletcs{@maketitle}{@maketitleA}%
+  }{%
+    \csletcs{@maketitle}{@maketitleB}%
+    \csgappto{maketitle}{\thispagestyle{TitlePage}}%
+  }%
+  \maketitle%
+  \ifbool{@LayoutA}{\begin{addmargin}[50mm]{0mm}\end{addmargin}}{}%
+}
+
+%% Índice remissivo
+\ifbool{@MakeIndexOn}{%
+  \DeclareRobustCommand*{\GobbleComma}[1]{\@gobble{#1}}%
+  \renewcommand*{\see}[2]{\ifblank{#1}{}{\textbf{\seename} #1}}%
+  \renewcommand*{\seealso}[2]{\ifblank{#1}{}{\textbf{\alsoname} #1}}%
+  \renewcommand*{\@idxitem}{\par\hangindent40\p@}%
+  \renewcommand*{\subitem}{\@idxitem\nobreak\hskip15\p@}%
+  \renewcommand*{\subsubitem}{\@idxitem\nobreak\hskip30\p@}%
+  \renewenvironment{theindex}{%
+    \section*{\indexname}%
+    \begin{multicols}{2}%
+    \raggedcolumns%
+    \vfuzz\maxdimen%
+    \parindent\z@%
+    \parskip\z@\@plus0.3\p@\relax%
+    \columnsep35\p@%
+    \columnseprule\z@%
+    \csletcs{item}{@idxitem}%
+  }{%
+    \end{multicols}%
+  }%
+  \cspreto{makeindex}{\IfFileExists{\jobname.idx}{\immediate\write18{makeindex -c -q \jobname.idx}}{}}%
+  \cspreto{printindex}{%
+    \phantomsection%
+    \addcontentsline{toc}{section}{\numberlinespace\indexname}%
+  }%
+}{%
+  \csletcs{makeindex}{relax}%
+  \csletcs{printindex}{relax}%
+}
+
+%% Finalização do documento
+%\cspreto{enddocument}

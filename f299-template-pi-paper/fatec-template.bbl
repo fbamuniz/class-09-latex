@@ -1,0 +1,537 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Alencar2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=819f5c1c063531247b57b9b82ab5671b}{%
+           family={Alencar},
+           familyi={A\bibinitperiod},
+           given={Luciana\bibnamedelima Hazin},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f6a11527982b47301d61ab8592002cf}{%
+           family={Almeida},
+           familyi={A\bibinitperiod},
+           given={Adiel\bibnamedelima Teixeira},
+           giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=735f9de6bccbc272496f9c39a1d94e6f}{%
+           family={Mota},
+           familyi={M\bibinitperiod},
+           given={Caroline\bibnamedelimb Maria{\bibnamedelimb }de\bibnamedelima Miranda},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Universidade Federal de São Carlos (UFSCar)}%
+      }
+      \strng{namehash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{fullhash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{fullhashraw}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{bibnamehash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{authorbibnamehash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{authornamehash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{authorfullhash}{76f3b9c10ab3d2b024da08505046c5f7}
+      \strng{authorfullhashraw}{76f3b9c10ab3d2b024da08505046c5f7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0104-530X}
+      \field{journaltitle}{Gestão {\&} Produção}
+      \field{month}{12}
+      \field{number}{3}
+      \field{title}{Sistemática proposta para seleção de fornecedores em gestão de projetos}
+      \field{volume}{14}
+      \field{year}{2007}
+      \field{pages}{477\bibrangedash 487}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1590/s0104-530x2007000300005
+      \endverb
+    \endentry
+    \entry{Andujar2006}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=caba2621e4ee80a85194e3afc97c97fe}{%
+           family={Andujar},
+           familyi={A\bibinitperiod},
+           given={Andrea\bibnamedelima Martins},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidade Federal de Santa Catarina}%
+      }
+      \list{location}{1}{%
+        {Florianópolis, SC}%
+      }
+      \strng{namehash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{fullhash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{fullhashraw}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{bibnamehash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{authorbibnamehash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{authornamehash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{authorfullhash}{caba2621e4ee80a85194e3afc97c97fe}
+      \strng{authorfullhashraw}{caba2621e4ee80a85194e3afc97c97fe}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{sheet}
+      \field{eventmonth}{5}
+      \field{eventyear}{2006}
+      \field{pagetotal}{206}
+      \field{title}{Modelo de qualidade de vida dentro dos domínios bio-psico-social para aposentados}
+      \field{type}{Tese (Doutorado em Engenharia de Produção)}
+      \field{urlday}{5}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2006}
+      \field{eventdateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://repositorio.ufsc.br/xmlui/handle/123456789/88517
+      \endverb
+      \verb{url}
+      \verb http://repositorio.ufsc.br/xmlui/handle/123456789/88517
+      \endverb
+    \endentry
+    \entry{Beltrano2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e22ad2bb4d284f07f8551d5f248078e0}{%
+           family={Beltrano},
+           familyi={B\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=02bf2cf9f4c465de13bac806a7e8704c}{%
+           family={Sicrano},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{fullhash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{fullhashraw}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{bibnamehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{authorbibnamehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{authornamehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{authorfullhash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{authorfullhashraw}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{editorbibnamehash}{02bf2cf9f4c465de13bac806a7e8704c}
+      \strng{editornamehash}{02bf2cf9f4c465de13bac806a7e8704c}
+      \strng{editorfullhash}{02bf2cf9f4c465de13bac806a7e8704c}
+      \strng{editorfullhashraw}{02bf2cf9f4c465de13bac806a7e8704c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Título do trabalho do Beltrano}
+      \field{year}{2021}
+    \endentry
+    \entry{boulic:91}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=635eb75ce15c9efd0bcb7a1f9fadc25f}{%
+           family={Boulic},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9c72253a8576c4f0b3cd2557ce36ec29}{%
+           family={Renault},
+           familyi={R\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=bb200d9cd161cb4b27f1fae4107113e3}{%
+           family={Magnenat-Thalmann},
+           familyi={M\bibinithyphendelim T\bibinitperiod},
+           given={Nadia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=24f20de24938c18a3655f419579d0900}{%
+           family={Thalmann},
+           familyi={T\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley {\&} Sons ltd.}%
+      }
+      \strng{namehash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{fullhash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{fullhashraw}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{bibnamehash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{authorbibnamehash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{authornamehash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{authorfullhash}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{authorfullhashraw}{c800dbeeec520cbf6d80c81896277f75}
+      \strng{editorbibnamehash}{42cbb8d5cd3d20e50bb8a1c3c15d7e8c}
+      \strng{editornamehash}{42cbb8d5cd3d20e50bb8a1c3c15d7e8c}
+      \strng{editorfullhash}{42cbb8d5cd3d20e50bb8a1c3c15d7e8c}
+      \strng{editorfullhashraw}{42cbb8d5cd3d20e50bb8a1c3c15d7e8c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{New Trends in Animation and Visualization}
+      \field{title}{3D Hierarchies for Animation}
+      \field{year}{1991}
+    \endentry
+    \entry{Carvalho2004}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ec977bbc67e973fe8f68bb23701a204}{%
+           family={Carvalho},
+           familyi={C\bibinitperiod},
+           given={Valter\bibnamedelima Rodrigues},
+           giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \name{bookauthor}{1}{}{%
+        {{hash=eae5749566151049a754bb2152d0d8aa}{%
+           family={Oliveira},
+           familyi={O\bibinitperiod},
+           given={O.\bibnamedelimi J.},
+           giveni={O\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {São Paulo, SP}%
+      }
+      \list{publisher}{1}{%
+        {Cengage Learning}%
+      }
+      \strng{namehash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{fullhash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{fullhashraw}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{bibnamehash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{authorbibnamehash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{authornamehash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{authorfullhash}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{authorfullhashraw}{3ec977bbc67e973fe8f68bb23701a204}
+      \strng{bookauthorbibnamehash}{eae5749566151049a754bb2152d0d8aa}
+      \strng{bookauthornamehash}{eae5749566151049a754bb2152d0d8aa}
+      \strng{bookauthorfullhash}{eae5749566151049a754bb2152d0d8aa}
+      \strng{bookauthorfullhashraw}{eae5749566151049a754bb2152d0d8aa}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booksubtitle}{Tópicos Avançados}
+      \field{booktitle}{Gestão da Qualidade}
+      \field{chapter}{11}
+      \field{isbn}{9788522113897}
+      \field{title}{Qualidade de Vida no Trabalho}
+      \field{year}{2004}
+      \field{pages}{159\bibrangedash 168}
+      \range{pages}{10}
+    \endentry
+    \entry{Fulano2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=daa5b011d974636fa2b0d556fcddf53c}{%
+           family={Fulano},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=e22ad2bb4d284f07f8551d5f248078e0}{%
+           family={Beltrano},
+           familyi={B\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{fullhash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{fullhashraw}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{bibnamehash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{authorbibnamehash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{authornamehash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{authorfullhash}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{authorfullhashraw}{daa5b011d974636fa2b0d556fcddf53c}
+      \strng{editorbibnamehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{editornamehash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{editorfullhash}{e22ad2bb4d284f07f8551d5f248078e0}
+      \strng{editorfullhashraw}{e22ad2bb4d284f07f8551d5f248078e0}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Título do trabalho do Fulano}
+      \field{year}{2021}
+    \endentry
+    \entry{Kalakota2002}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=42bb1b0e40a6926c8ef47198451d1fcb}{%
+           family={Kalakota},
+           familyi={K\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b7ed9d8593cc32c3e9c6440e5b5af559}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={Marcia},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Porto Alegre, RS}%
+      }
+      \list{publisher}{1}{%
+        {Bookman}%
+      }
+      \strng{namehash}{e124f701561891209f2b7c79224ead7d}
+      \strng{fullhash}{e124f701561891209f2b7c79224ead7d}
+      \strng{fullhashraw}{e124f701561891209f2b7c79224ead7d}
+      \strng{bibnamehash}{e124f701561891209f2b7c79224ead7d}
+      \strng{authorbibnamehash}{e124f701561891209f2b7c79224ead7d}
+      \strng{authornamehash}{e124f701561891209f2b7c79224ead7d}
+      \strng{authorfullhash}{e124f701561891209f2b7c79224ead7d}
+      \strng{authorfullhashraw}{e124f701561891209f2b7c79224ead7d}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{9788573078756}
+      \field{pagetotal}{470}
+      \field{subtitle}{Estratégias para Alcançar o Sucesso no Mundo Digital}
+      \field{title}{E-Business}
+      \field{year}{2002}
+    \endentry
+    \entry{knuth:84}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ec08e6f01da5f3814f28a70c89c64656}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhashraw}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhashraw}{ec08e6f01da5f3814f28a70c89c64656}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{15th}
+      \field{title}{The {\TeX} Book}
+      \field{year}{1984}
+    \endentry
+    \entry{Purcidonio2008}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=08bfcc608fa1a83a6b05f0b0242f6478}{%
+           family={Purcidonio},
+           familyi={P\bibinitperiod},
+           given={Paula\bibnamedelima Michelle},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidade Tecnológica Federal do Paraná}%
+      }
+      \list{location}{1}{%
+        {Ponta Grossa, PR}%
+      }
+      \strng{namehash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{fullhash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{fullhashraw}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{bibnamehash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{authorbibnamehash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{authornamehash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{authorfullhash}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \strng{authorfullhashraw}{08bfcc608fa1a83a6b05f0b0242f6478}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{sheet}
+      \field{eventmonth}{2}
+      \field{eventyear}{2008}
+      \field{pagetotal}{153}
+      \field{subtitle}{o setor moveleiro de Arapongas {—} PR}
+      \field{title}{Práticas de gestão do conhecimento em arranjo produtivo local}
+      \field{type}{Dissertação (Mestrado em Engenharia de Produção)}
+      \field{urlday}{5}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2008}
+      \field{eventdateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://repositorio.utfpr.edu.br/jspui/handle/1/3661
+      \endverb
+      \verb{url}
+      \verb http://repositorio.utfpr.edu.br/jspui/handle/1/3661
+      \endverb
+    \endentry
+    \entry{Ramos2003}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2e9a5d7cd8fe1f0661e84648f5cba97a}{%
+           family={Ramos},
+           familyi={R\bibinitperiod},
+           given={Anatália\bibnamedelimb Saraiva\bibnamedelima Martins},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d736efe55005b6de23acfc379306e340}{%
+           family={Miranda},
+           familyi={M\bibinitperiod},
+           given={Ana\bibnamedelimb Lúcia\bibnamedelima Brenner},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Rio de Janeiro, RJ}%
+      }
+      \list{organization}{1}{%
+        {Universidade Federal de Ouro Preto (UFOP)}%
+      }
+      \list{publisher}{1}{%
+        {Associação Brasileira de Engenharia de Produção (ABEPRO)}%
+      }
+      \strng{namehash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{fullhash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{fullhashraw}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{bibnamehash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{authorbibnamehash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{authornamehash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{authorfullhash}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \strng{authorfullhashraw}{f3da4cf580e5f415f0d01035d1aa9d64}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Anais [\ldots].}
+      \field{eventmonth}{10}
+      \field{eventtitle}{Encontro Nacional de Engenharia de Produção (ENEGEP)}
+      \field{eventyear}{2003}
+      \field{note}{Paper ID: ENEGEP2003-TR0903-1652}
+      \field{number}{23}
+      \field{subtitle}{uma pesquisa qualitativa com gestores da Unimed/Natal}
+      \field{title}{Processo de adoção de um sistema integrado de gestão (ERP)}
+      \field{urlday}{5}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{venue}{Ouro Preto, MG}
+      \field{year}{2003}
+      \field{eventdateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb http://www.abepro.org.br/biblioteca/ENEGEP2003_TR0903_1652.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.abepro.org.br/biblioteca/ENEGEP2003_TR0903_1652.pdf
+      \endverb
+    \endentry
+    \entry{smith:99}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f5ad93423c3c7f823659822ec5c53567}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=87d144c38891a773e81f111da8a1fd8a}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=e8b5ca48ed806a917b1129c06ebeac14}{%
+           family={Smith-Jones},
+           familyi={S\bibinithyphendelim J\bibinitperiod},
+           given={A.\bibnamedelimi B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Publishing Press}%
+      }
+      \strng{namehash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{fullhash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{fullhashraw}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{bibnamehash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{authorbibnamehash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{authornamehash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{authorfullhash}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{authorfullhashraw}{ee18936f05b1c4db8570b9155bb1285b}
+      \strng{editorbibnamehash}{e8b5ca48ed806a917b1129c06ebeac14}
+      \strng{editornamehash}{e8b5ca48ed806a917b1129c06ebeac14}
+      \strng{editorfullhash}{e8b5ca48ed806a917b1129c06ebeac14}
+      \strng{editorfullhashraw}{e8b5ca48ed806a917b1129c06ebeac14}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Computer Science}
+      \field{title}{On the Complexity of Computing}
+      \field{year}{1999}
+      \field{pages}{555\bibrangedash 566}
+      \range{pages}{12}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
